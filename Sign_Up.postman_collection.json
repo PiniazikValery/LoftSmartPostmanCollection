@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "2fbe1608-34ed-4e3d-b714-e2d0a8d758ae",
+		"name": "Sign Up",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SignUpTest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b034bae3-6437-4b87-8ffa-41a464076134",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"email\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "password1",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "accept",
+							"value": "{{accept}}",
+							"type": "text"
+						},
+						{
+							"key": "allow_sms",
+							"value": "{{allow_sms}}",
+							"type": "text"
+						},
+						{
+							"key": "phone_required",
+							"value": "{{phone_required}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{phone}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/rest/",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"rest",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3c030243-cb4a-4767-a6bf-102cb9eee9d6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2c2dcf97-7777-4d28-87c6-a34a506d3ed6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "68f0b2a9-0056-427d-9ff7-1a1e132a83f7",
+			"key": "url",
+			"value": "https://aptu.co/",
+			"type": "string"
+		},
+		{
+			"id": "cd3a856e-3d3e-4061-88fb-addf9ee5e544",
+			"key": "email",
+			"value": "polyakova.janna-071610@gmail.com",
+			"type": "string"
+		},
+		{
+			"id": "d897fbef-904e-4fc8-9880-5bb7c03dd2ba",
+			"key": "password",
+			"value": "Dfkthfgbyzpbr1",
+			"type": "string"
+		},
+		{
+			"id": "b9d0f0c3-e5ee-4fde-ad55-e6200bcfc0a2",
+			"key": "accept",
+			"value": "true",
+			"type": "string"
+		},
+		{
+			"id": "fa106e32-b64e-4d18-8f3f-b55203d3356f",
+			"key": "allow_sms",
+			"value": "false",
+			"type": "string"
+		},
+		{
+			"id": "9b99a0c8-a686-45f7-9617-b05e67fc1fe9",
+			"key": "phone_required",
+			"value": "false",
+			"type": "string"
+		},
+		{
+			"id": "09d885f9-5b23-47d7-bc62-979d668104ef",
+			"key": "phone",
+			"value": "+375447970061",
+			"type": "string"
+		}
+	]
+}
