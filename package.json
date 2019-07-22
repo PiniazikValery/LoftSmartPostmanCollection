@@ -1,0 +1,13 @@
+{
+    "name": "loft_smart_api_tests",
+    "version": "1.0.0",
+    "description": "testing Stage LoftSmart",
+    "scripts": {
+        "api_tests": "node postman_test_runner.js"
+    },
+    "dependencies": {
+        "newman": "^3.9.3"
+    },
+    "author": "Valery Piniazik",
+    "license": "ISC"
+}
