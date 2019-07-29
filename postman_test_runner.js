@@ -18,7 +18,7 @@ Sign_Up_collection.set('variable', arrayOfParams);
 
 Sign_Up_collection.save(() => newman.run({
     collection: require(pathToSignUpCollection),
-    reporters: 'cli'
+    reporters: ['cli','html']
 }, function (err) {
     if (err) { throw err; }
     console.log('collection run complete!');
