@@ -18,10 +18,10 @@ Sign_Up_collection.set('variable', arrayOfParams);
 
 Sign_Up_collection.save(() => newman.run({
     collection: require(pathToSignUpCollection),
-    reporters: ['cli','htmlextra'],
+    reporters: ['cli','junit'],
     reporter: {
-        htmlextra: {
-            export: './newman/index.html',            
+        junit: {
+            export: './reports/report.xml',            
         }
     }
 }, function (err) {
