@@ -8,8 +8,8 @@ let Sign_Up_collection = editJsonFile(pathToSignUpCollection);
 let arrayOfParams = Sign_Up_collection.get('variable');
 
 arrayOfParams = arrayOfParams.map(param => {
-    if(param.key === 'email'){
-        param.value = new Date().getTime() + param.value;
+    if (param.key === 'email') {
+        param.value = `valery.piniazik+${new Date().getTime()}@yandex.by`;
     }
     return param;
 });

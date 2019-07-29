@@ -1,161 +1,537 @@
 {
-	"info": {
-		"_postman_id": "2fbe1608-34ed-4e3d-b714-e2d0a8d758ae",
-		"name": "Sign Up",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "SignUpTest",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b034bae3-6437-4b87-8ffa-41a464076134",
-						"exec": [
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Body matches string\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"email\");",
-							"});",
-							"",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "email",
-							"value": "{{email}}",
-							"type": "text"
-						},
-						{
-							"key": "password1",
-							"value": "{{password}}",
-							"type": "text"
-						},
-						{
-							"key": "accept",
-							"value": "{{accept}}",
-							"type": "text"
-						},
-						{
-							"key": "allow_sms",
-							"value": "{{allow_sms}}",
-							"type": "text"
-						},
-						{
-							"key": "phone_required",
-							"value": "{{phone_required}}",
-							"type": "text"
-						},
-						{
-							"key": "phone",
-							"value": "{{phone}}",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}user/rest/",
-					"host": [
-						"{{url}}user"
-					],
-					"path": [
-						"rest",
-						""
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "3c030243-cb4a-4767-a6bf-102cb9eee9d6",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"id": "2c2dcf97-7777-4d28-87c6-a34a506d3ed6",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"id": "68f0b2a9-0056-427d-9ff7-1a1e132a83f7",
-			"key": "url",
-			"value": "https://aptu.co/",
-			"type": "string"
-		},
-		{
-			"id": "cd3a856e-3d3e-4061-88fb-addf9ee5e544",
-			"key": "email",
-			"value": "polyakova.janna-071610@gmail.com",
-			"type": "string"
-		},
-		{
-			"id": "d897fbef-904e-4fc8-9880-5bb7c03dd2ba",
-			"key": "password",
-			"value": "Dfkthfgbyzpbr1",
-			"type": "string"
-		},
-		{
-			"id": "b9d0f0c3-e5ee-4fde-ad55-e6200bcfc0a2",
-			"key": "accept",
-			"value": "true",
-			"type": "string"
-		},
-		{
-			"id": "fa106e32-b64e-4d18-8f3f-b55203d3356f",
-			"key": "allow_sms",
-			"value": "false",
-			"type": "string"
-		},
-		{
-			"id": "9b99a0c8-a686-45f7-9617-b05e67fc1fe9",
-			"key": "phone_required",
-			"value": "false",
-			"type": "string"
-		},
-		{
-			"id": "09d885f9-5b23-47d7-bc62-979d668104ef",
-			"key": "phone",
-			"value": "+375447970061",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "bf832435-38a3-4476-9f55-4ef2846f3de1",
+    "name": "LOFTSMART",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "SignUp",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d70717f8-8b9e-41f7-82d8-1b9794ffb4a4",
+            "exec": [
+              "pm.test(\"Content-Type is present\", function () {",
+              "    pm.response.to.have.header(\"Content-Type\");",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Test Body includes all fields such as supposed\", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"id\");",
+              "    pm.expect(pm.response.text()).to.include(\"email\");",
+              "    pm.expect(pm.response.text()).to.include(\"first_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"last_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"avatar\");",
+              "    pm.expect(pm.response.text()).to.include(\"can_lease\");",
+              "    pm.expect(pm.response.text()).to.include(\"can_review\");",
+              "    pm.expect(pm.response.text()).to.include(\"extra_data\");",
+              "    pm.expect(pm.response.text()).to.include(\"coupon_code\");",
+              "    ",
+              "    pm.expect(pm.response.text()).to.include(\"code\");",
+              "    pm.expect(pm.response.text()).to.include(\"get_amount\");",
+              "    pm.expect(pm.response.text()).to.include(\"give_amount\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_percentage\");",
+              "    pm.expect(pm.response.text()).to.include(\"use_once\");",
+              "    pm.expect(pm.response.text()).to.include(\"used\");",
+              "    pm.expect(pm.response.text()).to.include(\"active\");",
+              "    pm.expect(pm.response.text()).to.include(\"user\");",
+              "    ",
+              "    pm.expect(pm.response.text()).to.include(\"phone\");",
+              "    pm.expect(pm.response.text()).to.include(\"verified\");",
+              "    pm.expect(pm.response.text()).to.include(\"login_redirect_url\");",
+              "    pm.expect(pm.response.text()).to.include(\"referral\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_authenticated\");",
+              "    pm.expect(pm.response.text()).to.include(\"token\");",
+              "    pm.expect(pm.response.text()).to.include(\"university\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_landlord\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord_groups\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord_profile\");",
+              "    pm.expect(pm.response.text()).to.include(\"signup\");",
+              "    pm.expect(pm.response.text()).to.include(\"csrftoken\");",
+              "});",
+              "",
+              "pm.test(\"Test Email content is passed\", function () {",
+              " pm.expect(jsonData.email).to.eql(pm.variables.get(\"email\"));",
+              "});",
+              "",
+              "//pm.test(\"Test email contains valid value\", function () {",
+              "  //      pm.expect(jsonData.email).to.eql('polyakova.janna+072446@gmail.com');",
+              "//});",
+              "    //pm.test(\"Test first_name\", function () {",
+              "  // pm.expect(jsonData.first_name).to.eql(null);",
+              "//});",
+              "",
+              "pm.test(\"Test avatar is {}\", function () {",
+              "   pm.expect(jsonData.avatar).to.eql({});",
+              "});",
+              "",
+              "pm.test(\"Test can_lease in False\", function () {",
+              "   pm.expect(jsonData.can_lease).to.eql(false);",
+              "});",
+              "    ",
+              "pm.test(\"Test can_review is True\", function () {",
+              "   pm.expect(jsonData.can_review).to.eql(true);",
+              "});",
+              "    ",
+              "pm.test(\"Test extra_data is {}\", function () {",
+              "   pm.expect(jsonData.extra_data).to.eql({});",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.active is true\", function () {",
+              "   pm.expect(jsonData.coupon_code.active).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.get_amount value is 8634.34\", function () {",
+              "   pm.expect(jsonData.coupon_code.get_amount).to.eql('8634.34');",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.give_amount value is 100.00\", function () {",
+              "   pm.expect(jsonData.coupon_code.give_amount).to.eql('100.00');",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.is_percentage is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.is_percentage).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.use_once is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.use_once).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.used is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.used).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.active is true\", function () {",
+              "   pm.expect(jsonData.coupon_code.active).to.eql(true);",
+              "});",
+              "",
+              "//        \"id\": \"c695d161-b2d4-410e-813a-25d387f964fd\",",
+              "  //      \"created\": \"2019-07-24T11:17:09.307638Z\",",
+              "    //    \"modified\": \"2019-07-24T11:17:09.307661Z\",",
+              "      //  \"code\": \"AXVEKQ\",",
+              "//        \"get_amount\": \"8634.34\",",
+              "  //      \"give_amount\": \"100.00\",",
+              "    //    \"is_percentage\": false,",
+              "      //  \"use_once\": false,",
+              "        //\"used\": false,",
+              "//        \"active\": true,",
+              "  //      \"user\": \"652a3496-3743-4492-8426-040f74b5e53b\"",
+              "",
+              "pm.test(\"Test is_authenticated is true\", function () {",
+              "   pm.expect(jsonData.is_authenticated).to.eql(true);",
+              "});",
+              "    ",
+              "pm.test(\"Test is_landlord is false\", function () {",
+              "   pm.expect(jsonData.is_landlord).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test landlord is null\", function () {",
+              "   pm.expect(jsonData.landlord).to.eql(null);",
+              "});",
+              "",
+              "pm.test(\"Test landlord_profile is null\", function () {",
+              "   pm.expect(jsonData.landlord_profile).to.eql(null);",
+              "});",
+              "",
+              "pm.test(\"Test signup is true\", function () {",
+              "   pm.expect(jsonData.signup).to.eql(true);",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "{{email}}",
+              "type": "text"
+            },
+            {
+              "key": "password1",
+              "value": "{{password}}",
+              "type": "text"
+            },
+            {
+              "key": "accept",
+              "value": "{{accept}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}user/rest/",
+          "host": [
+            "{{url}}user"
+          ],
+          "path": [
+            "rest",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "SignUp_positive",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "polyakova.janna+072444@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password1",
+                  "value": "{{password}}",
+                  "type": "text"
+                },
+                {
+                  "key": "accept",
+                  "value": "{{accept}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}user/rest/",
+              "host": [
+                "{{url}}user"
+              ],
+              "path": [
+                "rest",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "accept",
+                  "value": "tru",
+                  "disabled": true
+                },
+                {
+                  "key": "allow_sms",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "email",
+                  "value": "polyakova.janna+071610@gmail.com",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "Janna123",
+                  "disabled": true
+                },
+                {
+                  "key": "phone_required",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "password1",
+                  "value": "Janna123",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, POST, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 24 Jul 2019 11:34:39 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=9fc5887461d81b76ffadddba458c1ece2f268e5a; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "messages=\"ad468547d71d998bce9fb89f4a0ef835f21b188f$[[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07181@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07182@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718123@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718124@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07187@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07188@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07189@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071810@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071811@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07223@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07224@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07225@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07226@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07229@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072210@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072215@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072216@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072217@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072218@gmail.com.\\\"]\\054\\\"__messagesnotfinished__\\\"]\"; HttpOnly; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4; expires=Wed, 22-Jul-2020 11:34:40 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=no4gd2g106qby4dcyi6uf038s3c41s1q; expires=Wed, 07-Aug-2019 11:34:40 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\",\n    \"email\": \"polyakova.janna+072444@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"eea87e62-39b3-4528-8e57-4126c03fe6ab\",\n        \"created\": \"2019-07-24T11:34:40.147609Z\",\n        \"modified\": \"2019-07-24T11:34:40.147631Z\",\n        \"code\": \"U239MN\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"9fc5887461d81b76ffadddba458c1ece2f268e5a\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.LOGIN",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6adf4973-ea08-457a-b733-c819bb7c18b5",
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "var data=JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"csrftoken\", data.csrftoken);",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "console.log(jsonData);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "{{email}}",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}api/v2/auth/login/",
+          "host": [
+            "{{url}}api"
+          ],
+          "path": [
+            "v2",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.LOGIN.https://aptu.co/api/v2/auth/login/",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "{{email}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}api/v2/auth/login/",
+              "host": [
+                "{{url}}api"
+              ],
+              "path": [
+                "v2",
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 24 Jul 2019 07:23:33 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm; expires=Wed, 22-Jul-2020 07:23:33 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=p9k6anips2nuuhngap5o94a91to2d8jk; expires=Wed, 07-Aug-2019 07:23:33 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"key\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"token\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"csrftoken\": \"n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm\"\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "b3053dae-0217-4e68-9ce9-8c35f43d287b",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "6a0a62cc-a589-4290-8666-71e7c5f437a9",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "67c1370a-c35a-4959-aecd-6138836342a0",
+      "key": "url",
+      "value": "https://aptu.co/",
+      "type": "string"
+    },
+    {
+      "id": "a5a518ca-13bc-4397-82b2-a5bacd189071",
+      "key": "email",
+      "value": "valery.piniazik+1564404831001@yandex.by",
+      "type": "string"
+    },
+    {
+      "id": "ca6af87d-0a5c-44a9-9339-960227f4be89",
+      "key": "password",
+      "value": "Janna123",
+      "type": "string"
+    },
+    {
+      "id": "f91e499e-878f-43e9-ac04-f2632d37ed99",
+      "key": "accept",
+      "value": "true",
+      "type": "string"
+    }
+  ]
 }
