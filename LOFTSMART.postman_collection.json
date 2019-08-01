@@ -851,9 +851,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be/",
+							"raw": "{{url}}{{rest_app}}{{id}}/",
 							"host": [
-								"{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be"
+								"{{url}}{{rest_app}}{{id}}"
 							],
 							"path": [
 								""
