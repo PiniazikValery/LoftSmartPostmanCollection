@@ -1,0 +1,1671 @@
+{
+  "info": {
+    "_postman_id": "3ad32410-908a-4fe8-8e11-7aa8ef96a587",
+    "name": "Sign_Up",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "SignUp",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d70717f8-8b9e-41f7-82d8-1b9794ffb4a4",
+            "exec": [
+              "pm.test(\"Content-Type is present\", function () {",
+              "    pm.response.to.have.header(\"Content-Type\");",
+              "});",
+              "",
+              "//var xsrfCookie = postman.getResponseCookie(\"csrftoken\");",
+              "//postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+              "",
+              "",
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200]);",
+              "});",
+              "",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Test Body includes all fields such as supposed\", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"id\");",
+              "    pm.expect(pm.response.text()).to.include(\"email\");",
+              "    pm.expect(pm.response.text()).to.include(\"first_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"last_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"avatar\");",
+              "    pm.expect(pm.response.text()).to.include(\"can_lease\");",
+              "    pm.expect(pm.response.text()).to.include(\"can_review\");",
+              "    pm.expect(pm.response.text()).to.include(\"extra_data\");",
+              "    pm.expect(pm.response.text()).to.include(\"coupon_code\");",
+              "",
+              "pm.expect(pm.response.text()).to.include(\"id\");",
+              "pm.expect(pm.response.text()).to.include(\"created\");",
+              "pm.expect(pm.response.text()).to.include(\"modified\");",
+              "    pm.expect(pm.response.text()).to.include(\"code\");",
+              "    pm.expect(pm.response.text()).to.include(\"get_amount\");",
+              "    pm.expect(pm.response.text()).to.include(\"give_amount\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_percentage\");",
+              "    pm.expect(pm.response.text()).to.include(\"use_once\");",
+              "    pm.expect(pm.response.text()).to.include(\"used\");",
+              "    pm.expect(pm.response.text()).to.include(\"active\");",
+              "    pm.expect(pm.response.text()).to.include(\"user\");",
+              "    ",
+              "    pm.expect(pm.response.text()).to.include(\"phone\");",
+              "    pm.expect(pm.response.text()).to.include(\"verified\");",
+              "    pm.expect(pm.response.text()).to.include(\"home\");",
+              "    pm.expect(pm.response.text()).to.include(\"login_redirect_url\");",
+              "    pm.expect(pm.response.text()).to.include(\"referral\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_authenticated\");",
+              "    pm.expect(pm.response.text()).to.include(\"token\");",
+              "    pm.expect(pm.response.text()).to.include(\"university\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_landlord\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord_groups\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord\");",
+              "    pm.expect(pm.response.text()).to.include(\"landlord_profile\");",
+              "    pm.expect(pm.response.text()).to.include(\"signup\");",
+              "    //pm.expect(pm.response.text()).to.include(\"csrftoken\");",
+              "});",
+              "",
+              "pm.test(\"Test Email content is passed\", function () {",
+              " pm.expect(jsonData.email).to.eql(pm.variables.get(\"email\"));",
+              "});",
+              "",
+              "pm.test(\"Test avatar is {}\", function () {",
+              "   pm.expect(jsonData.avatar).to.eql({});",
+              "});",
+              "",
+              "pm.test(\"Test can_lease in False\", function () {",
+              "   pm.expect(jsonData.can_lease).to.eql(false);",
+              "});",
+              "    ",
+              "pm.test(\"Test can_review is True\", function () {",
+              "   pm.expect(jsonData.can_review).to.eql(true);",
+              "});",
+              "    ",
+              "pm.test(\"Test extra_data is {}\", function () {",
+              "   pm.expect(jsonData.extra_data).to.eql({});",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.active is true\", function () {",
+              "   pm.expect(jsonData.coupon_code.active).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.get_amount value is 8634.34\", function () {",
+              "   pm.expect(jsonData.coupon_code.get_amount).to.eql('8634.34');",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.give_amount value is 100.00\", function () {",
+              "   pm.expect(jsonData.coupon_code.give_amount).to.eql('100.00');",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.is_percentage is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.is_percentage).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.use_once is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.use_once).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.used is false\", function () {",
+              "   pm.expect(jsonData.coupon_code.used).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test coupon_code.active is true\", function () {",
+              "   pm.expect(jsonData.coupon_code.active).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Test is_authenticated is true\", function () {",
+              "   pm.expect(jsonData.is_authenticated).to.eql(true);",
+              "});",
+              "    ",
+              "pm.test(\"Test is_landlord is false\", function () {",
+              "   pm.expect(jsonData.is_landlord).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test landlord is null\", function () {",
+              "   pm.expect(jsonData.landlord).to.eql(null);",
+              "});",
+              "",
+              "pm.test(\"Test landlord_profile is null\", function () {",
+              "   pm.expect(jsonData.landlord_profile).to.eql(null);",
+              "});",
+              "",
+              "pm.test(\"Test signup is true\", function () {",
+              "   pm.expect(jsonData.signup).to.eql(true);",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "{{email}}",
+              "type": "text"
+            },
+            {
+              "key": "password1",
+              "value": "{{password}}",
+              "type": "text"
+            },
+            {
+              "key": "accept",
+              "value": "{{accept}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}user/rest/",
+          "host": [
+            "{{url}}user"
+          ],
+          "path": [
+            "rest",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "SignUp_positive",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "polyakova.janna+072444@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password1",
+                  "value": "{{password}}",
+                  "type": "text"
+                },
+                {
+                  "key": "accept",
+                  "value": "{{accept}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}user/rest/?",
+              "host": [
+                "{{url}}user"
+              ],
+              "path": [
+                "rest",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "accept",
+                  "value": "tru",
+                  "disabled": true
+                },
+                {
+                  "key": "allow_sms",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "email",
+                  "value": "polyakova.janna+071610@gmail.com",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "Janna123",
+                  "disabled": true
+                },
+                {
+                  "key": "phone_required",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "password1",
+                  "value": "Janna123",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, POST, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 24 Jul 2019 11:34:39 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=9fc5887461d81b76ffadddba458c1ece2f268e5a; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "messages=\"ad468547d71d998bce9fb89f4a0ef835f21b188f$[[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07181@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07182@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718123@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718124@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07187@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07188@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07189@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071810@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071811@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07223@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07224@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07225@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07226@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07229@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072210@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072215@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072216@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072217@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072218@gmail.com.\\\"]\\054\\\"__messagesnotfinished__\\\"]\"; HttpOnly; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4; expires=Wed, 22-Jul-2020 11:34:40 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=no4gd2g106qby4dcyi6uf038s3c41s1q; expires=Wed, 07-Aug-2019 11:34:40 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\",\n    \"email\": \"polyakova.janna+072444@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"eea87e62-39b3-4528-8e57-4126c03fe6ab\",\n        \"created\": \"2019-07-24T11:34:40.147609Z\",\n        \"modified\": \"2019-07-24T11:34:40.147631Z\",\n        \"code\": \"U239MN\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"9fc5887461d81b76ffadddba458c1ece2f268e5a\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4\"\n}"
+        },
+        {
+          "name": "SignUp",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password1",
+                  "value": "{{password}}",
+                  "type": "text"
+                },
+                {
+                  "key": "accept",
+                  "value": "{{accept}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}user/rest/",
+              "host": [
+                "{{url}}user"
+              ],
+              "path": [
+                "rest",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, POST, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 10:57:23 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "messages=\"ad468547d71d998bce9fb89f4a0ef835f21b188f$[[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07181@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07182@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718123@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718124@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07187@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07188@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07189@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071810@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071811@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07223@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07224@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07225@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07226@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07229@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072210@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072215@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072216@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072217@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072218@gmail.com.\\\"]\\054\\\"__messagesnotfinished__\\\"]\"; HttpOnly; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB; expires=Mon, 27-Jul-2020 10:57:24 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:57:24 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"defd99ec-312e-44a7-8b73-b09ca4249308\",\n    \"email\": \"polyakova.janna+5@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"17eb6351-9cac-4534-8ea9-a3b761ec2a18\",\n        \"created\": \"2019-07-29T10:57:24.073349Z\",\n        \"modified\": \"2019-07-29T10:57:24.073373Z\",\n        \"code\": \"BBG6YT\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"defd99ec-312e-44a7-8b73-b09ca4249308\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB\"\n}"
+        },
+        {
+          "name": "SignUp",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password1",
+                  "value": "{{password}}",
+                  "type": "text"
+                },
+                {
+                  "key": "accept",
+                  "value": "{{accept}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}user/rest/",
+              "host": [
+                "{{url}}user"
+              ],
+              "path": [
+                "rest",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, POST, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 31 Jul 2019 12:58:44 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=aa7c0a468fb490f2dcf8012a99211c42e2e2cce4; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "messages=\"ad468547d71d998bce9fb89f4a0ef835f21b188f$[[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07181@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07182@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718123@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+0718124@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07187@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07188@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07189@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071810@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+071811@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07223@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07224@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07225@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07226@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+07229@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072210@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072215@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072216@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072217@gmail.com.\\\"]\\054[\\\"__json_message\\\"\\0540\\05425\\054\\\"Successfully signed in as polyakova.janna+072218@gmail.com.\\\"]\\054\\\"__messagesnotfinished__\\\"]\"; HttpOnly; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=fSgiXTpNdlMXvKIo7PPdBHkzLJWA2Xcq; expires=Wed, 29-Jul-2020 12:58:44 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=7as1k5chdtk2xh4s8o3os6c3a4hbj14e; expires=Wed, 14-Aug-2019 12:58:44 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "Content-Length",
+              "value": "845"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"8d1d53c3-54a7-41d4-9ab8-d0db6fe18668\",\n    \"email\": \"polyakova.janna+07312@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"86ec6bea-a232-492e-b2c5-ccffd49e9500\",\n        \"created\": \"2019-07-31T12:58:44.749799Z\",\n        \"modified\": \"2019-07-31T12:58:44.749824Z\",\n        \"code\": \"OA2KRM\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"8d1d53c3-54a7-41d4-9ab8-d0db6fe18668\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"aa7c0a468fb490f2dcf8012a99211c42e2e2cce4\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"fSgiXTpNdlMXvKIo7PPdBHkzLJWA2Xcq\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.LOGIN",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1863833b-45ad-460d-9009-2891c9bbf2f7",
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "",
+              "//var data=JSON.parse(responseBody);",
+              "//postman.setEnvironmentVariable//(\"csrftoken\", data.csrftoken);",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "var xsrfCookie = postman.getResponseCookie(\"csrftoken\");",
+              "postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+              "",
+              "",
+              "console.log(jsonData);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrftoken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "{{email}}",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}api/v2/auth/login/",
+          "host": [
+            "{{url}}api"
+          ],
+          "path": [
+            "v2",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.LOGIN",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "{{email}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}api/v2/auth/login/",
+              "host": [
+                "{{url}}api"
+              ],
+              "path": [
+                "v2",
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 10:58:26 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg; expires=Mon, 27-Jul-2020 10:58:26 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:58:26 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "Content-Length",
+              "value": "148"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"key\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"csrftoken\": \"rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg\"\n}"
+        },
+        {
+          "name": "1.Stage.LOGIN.https://aptu.co/api/v2/auth/login/",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "{{email}}",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}api/v2/auth/login/",
+              "host": [
+                "{{url}}api"
+              ],
+              "path": [
+                "v2",
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 24 Jul 2019 07:23:33 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "csrftoken=n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm; expires=Wed, 22-Jul-2020 07:23:33 GMT; Max-Age=31449600; Path=/"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=p9k6anips2nuuhngap5o94a91to2d8jk; expires=Wed, 07-Aug-2019 07:23:33 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"key\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"token\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"csrftoken\": \"n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.POST.applicationUCA",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "31407f17-949f-4e55-ba26-8c756ea092f1",
+            "exec": [
+              "pm.test(\"response is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Test Body includes all fields such as ... \", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"id\");",
+              "    pm.expect(pm.response.text()).to.include(\"freezed_property_fees\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_uca\");",
+              "    pm.expect(pm.response.text()).to.include(\"roommates\");",
+              "    pm.expect(pm.response.text()).to.include(\"created\");",
+              "    pm.expect(pm.response.text()).to.include(\"modified\");",
+              "    pm.expect(pm.response.text()).to.include(\"first_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"us_citizen\");",
+              "    pm.expect(pm.response.text()).to.include(\"arrested\");",
+              "    pm.expect(pm.response.text()).to.include(\"defaulted\");",
+              "    pm.expect(pm.response.text()).to.include(\"evicted\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_requested\");",
+              "    pm.expect(pm.response.text()).to.include(\"has_guarantor\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"status\");",
+              "    pm.expect(pm.response.text()).to.include(\"application_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"with_application_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"without_leasing_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"rent\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit\");",
+              "    pm.expect(pm.response.text()).to.include(\"accepted\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_filled\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit_configured\");",
+              "    pm.expect(pm.response.text()).to.include(\"fee_paid\");",
+              "    pm.expect(pm.response.text()).to.include(\"paid\");",
+              "      pm.expect(pm.response.text()).to.include(\"discount_is_percentage\");",
+              "        pm.expect(pm.response.text()).to.include(\"step_lease_landlord\");",
+              "          pm.expect(pm.response.text()).to.include(\"enough\");",
+              "            pm.expect(pm.response.text()).to.include(\"roommates_modal_closed\");",
+              "              pm.expect(pm.response.text()).to.include(\"bed_rent\");  ",
+              "              pm.expect(pm.response.text()).to.include(\"show_rent_by_unit\");",
+              "                pm.expect(pm.response.text()).to.include(\"is_archived\");",
+              "pm.expect(pm.response.text()).to.include(\"call_scheduled\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_referral\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_discount\");",
+              "pm.expect(pm.response.text()).to.include(\"strikethrough_amount\");",
+              "pm.expect(pm.response.text()).to.include(\"flat_fee\");",
+              "pm.expect(pm.response.text()).to.include(\"rooms_application\");",
+              "pm.expect(pm.response.text()).to.include(\"applied_property\");",
+              "pm.expect(pm.response.text()).to.include(\"user\");",
+              "    ",
+              "});",
+              "",
+              "var data=JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"id\", data.id);",
+              "",
+              "pm.test(\"Test ID of application is passed\", function () {",
+              " pm.expect(jsonData.id).to.eql(pm.variables.get(\"id\"));",
+              "});",
+              "",
+              "",
+              "//pm.test(\"Test : UCA is true and archived\", function () {",
+              "//pm.expect(jsonData.is_uca).to.eql(true);",
+              "//pm.expect(jsonData.is_archived).to.eql(true);",
+              "//});",
+              "",
+              "",
+              "pm.test(\"Test :Has_guarantor is Y\", function () {",
+              "pm.expect(jsonData.has_guarantor).to.eql(\"Y\");",
+              "});",
+              "",
+              "pm.test(\"Test :Guarantor_documents_ready and Guarantor_documents_sent are false\", function () {",
+              "pm.expect(jsonData.guarantor_documents_ready).to.eql(false);",
+              "pm.expect(jsonData.guarantor_documents_sent).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test : Status=Pending\", function () {",
+              "pm.expect(jsonData.status).to.eql(\"pending\");",
+              "});",
+              "",
+              "//pm.test(\"Test : ApplicationID\", function () {",
+              "  //  var ApplicationID=pm.environment.get (\"ApplicationID\")",
+              "//pm.expect(jsonData.id).to.eql(ApplicationID);",
+              "//});",
+              "",
+              "console.log(jsonData);",
+              "",
+              "//pm.environment.set(\"app_id\",jsonData.id);",
+              "",
+              "     ",
+              "  "
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrftoken}}",
+            "type": "text"
+          },
+          {
+            "key": "Referer",
+            "value": "{{referer}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"parent\": \"521b2727-3aa7-4c77-a1cb-0af1c0ca34f6\",\n\t\"rooms_application\": \"4b39a73e-2348-444b-9456-d06cbdb3f532\",\n\t\"property_unit\": \"91119952-e672-4d9c-bf70-fbc133a45a3f\",\n\t\"user\": \"64461071-4f4d-4d05-9e21-0115942c2ce6\",\n\t\"property_fees\":[],\n    \"is_uca\":false\n}\n\n"
+        },
+        "url": {
+          "raw": "{{url}}{{rest_app}}",
+          "host": [
+            "{{url}}{{rest_app}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.POST.applicationUCA",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-CSRFToken",
+                "value": "{{csrftoken}}",
+                "type": "text"
+              },
+              {
+                "key": "Referer",
+                "value": "{{referer}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"parent\": \"521b2727-3aa7-4c77-a1cb-0af1c0ca34f6\",\n\t\"rooms_application\": \"4b39a73e-2348-444b-9456-d06cbdb3f532\",\n\t\"property_unit\": \"91119952-e672-4d9c-bf70-fbc133a45a3f\",\n\t\"user\": \"64461071-4f4d-4d05-9e21-0115942c2ce6\",\n\t\"property_fees\":[],\n    \"isUCA\":true\n}\n\n"
+            },
+            "url": {
+              "raw": "{{url}}{{rest_app}}",
+              "host": [
+                "{{url}}{{rest_app}}"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 11:00:44 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 11:00:51 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"65e8320b-d042-4500-9e59-fe42e6225130\",\n    \"property_unit\": \"dc3f4192-81f8-43b4-8f08-96bf529f8f04\",\n    \"freezed_property_fees\": [],\n    \"is_uca\": true,\n    \"roommates\": [],\n    \"created\": \"2019-07-29T11:00:44.779126Z\",\n    \"modified\": \"2019-07-29T11:00:51.675501Z\",\n    \"first_name\": null,\n    \"last_name\": null,\n    \"gender\": null,\n    \"date_of_birth\": null,\n    \"email\": null,\n    \"phone\": null,\n    \"us_citizen\": \"Y\",\n    \"address_line1\": null,\n    \"address_line2\": null,\n    \"city\": null,\n    \"state\": null,\n    \"zip_code\": null,\n    \"country\": null,\n    \"university\": null,\n    \"graduation_year\": null,\n    \"ssn\": null,\n    \"id_type\": null,\n    \"id_number\": null,\n    \"id_expiration\": null,\n    \"id_state\": null,\n    \"id_country\": null,\n    \"emergency_first_name\": null,\n    \"emergency_last_name\": null,\n    \"emergency_phone\": null,\n    \"emergency_email\": null,\n    \"arrested\": \"N\",\n    \"arrest_details\": null,\n    \"defaulted\": \"N\",\n    \"default_details\": null,\n    \"evicted\": \"N\",\n    \"eviction_details\": null,\n    \"guarantor_requested\": false,\n    \"has_guarantor\": \"Y\",\n    \"guarantor_first_name\": null,\n    \"guarantor_last_name\": null,\n    \"guarantor_email\": null,\n    \"guarantor_phone\": null,\n    \"guarantor_employer\": null,\n    \"guarantor_job\": null,\n    \"guarantor_salary\": null,\n    \"guarantor_documents_sent\": false,\n    \"guarantor_documents_ready\": false,\n    \"renter_employer\": null,\n    \"renter_job\": null,\n    \"renter_salary\": null,\n    \"application_state\": null,\n    \"additional_requests\": null,\n    \"date_from\": null,\n    \"comment\": null,\n    \"referral_code\": \"\",\n    \"status\": \"pending\",\n    \"application_form_file\": null,\n    \"application_form_signed\": false,\n    \"with_application_form\": false,\n    \"leasing_form_file\": null,\n    \"without_leasing_form\": false,\n    \"rent\": \"2600.00\",\n    \"deposit\": \"2600.00\",\n    \"admin_fee\": null,\n    \"accepted\": false,\n    \"documents_sent\": false,\n    \"documents_ready\": false,\n    \"leasing_form_ready\": false,\n    \"leasing_form_filled\": false,\n    \"leasing_form_signed\": false,\n    \"deposit_configured\": false,\n    \"fee_paid\": false,\n    \"paid\": false,\n    \"discount_amount\": null,\n    \"discount_is_percentage\": false,\n    \"step_lease_landlord\": false,\n    \"enough\": false,\n    \"application_all_docs_zip\": null,\n    \"application_tenant_docs_zip\": null,\n    \"application_fee\": null,\n    \"roommates_modal_closed\": false,\n    \"bed_rent\": \"2600.00\",\n    \"cached_jetty\": {},\n    \"show_rent_by_unit\": false,\n    \"is_archived\": true,\n    \"confirmed_at\": null,\n    \"confirmed_rent_value\": null,\n    \"completed_at\": null,\n    \"call_scheduled\": false,\n    \"cashed_referral\": false,\n    \"cashed_discount\": false,\n    \"strikethrough_amount\": \"0.00\",\n    \"promotion_value\": null,\n    \"platform_fee\": null,\n    \"flat_fee\": \"34.00\",\n    \"psa_snapshot\": null,\n    \"parent\": \"521b2727-3aa7-4c77-a1cb-0af1c0ca34f6\",\n    \"rooms_application\": \"ec40b1be-1b71-4dcd-b6a9-4f688f5454f4\",\n    \"applied_property\": \"51679330-bd2d-4f14-8198-3ca78ec5a608\",\n    \"user\": \"64461071-4f4d-4d05-9e21-0115942c2ce6\",\n    \"creator\": null,\n    \"application_form\": null,\n    \"leasing_form\": null,\n    \"application_conversation\": null\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.GET.applicationUCA",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "320f4202-de49-4bf7-b81a-35c08a36922e",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Test Body includes all fields such as ... \", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"id\");",
+              "pm.expect(pm.response.text()).to.include(\"property_unit\");",
+              "    pm.expect(pm.response.text()).to.include(\"unit_number\");",
+              "    pm.expect(pm.response.text()).to.include(\"available_from\");",
+              "    pm.expect(pm.response.text()).to.include(\"double_occupancy\");",
+              "    pm.expect(pm.response.text()).to.include(\"description\");",
+              "    pm.expect(pm.response.text()).to.include(\"hidden\");",
+              "    pm.expect(pm.response.text()).to.include(\"rent\");",
+              "    pm.expect(pm.response.text()).to.include(\"rooms\");",
+              "    pm.expect(pm.response.text()).to.include(\"baths\");",
+              "    pm.expect(pm.response.text()).to.include(\"matterport_url\");",
+              "    pm.expect(pm.response.text()).to.include(\"min_roommates\");",
+              "    pm.expect(pm.response.text()).to.include(\"max_roommates\");",
+              "  ",
+              "    pm.expect(pm.response.text()).to.include(\"freezed_property_fees\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_uca\");",
+              "    pm.expect(pm.response.text()).to.include(\"roommates\");",
+              "    pm.expect(pm.response.text()).to.include(\"created\");",
+              "    pm.expect(pm.response.text()).to.include(\"modified\");",
+              "    pm.expect(pm.response.text()).to.include(\"us_citizen\");",
+              "    pm.expect(pm.response.text()).to.include(\"arrested\");",
+              "    pm.expect(pm.response.text()).to.include(\"defaulted\");",
+              "    pm.expect(pm.response.text()).to.include(\"evicted\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_requested\");",
+              "    pm.expect(pm.response.text()).to.include(\"has_guarantor\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"status\");",
+              "    pm.expect(pm.response.text()).to.include(\"application_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"with_application_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"without_leasing_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"rent\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit\");",
+              "    pm.expect(pm.response.text()).to.include(\"accepted\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_filled\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit_configured\");",
+              "    pm.expect(pm.response.text()).to.include(\"fee_paid\");",
+              "    pm.expect(pm.response.text()).to.include(\"paid\");",
+              "      pm.expect(pm.response.text()).to.include(\"discount_is_percentage\");",
+              "        pm.expect(pm.response.text()).to.include(\"step_lease_landlord\");",
+              "          pm.expect(pm.response.text()).to.include(\"enough\");",
+              "            pm.expect(pm.response.text()).to.include(\"roommates_modal_closed\");",
+              "              pm.expect(pm.response.text()).to.include(\"bed_rent\");  ",
+              "              pm.expect(pm.response.text()).to.include(\"show_rent_by_unit\");",
+              "                pm.expect(pm.response.text()).to.include(\"is_archived\");",
+              "pm.expect(pm.response.text()).to.include(\"call_scheduled\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_referral\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_discount\");",
+              "pm.expect(pm.response.text()).to.include(\"strikethrough_amount\");",
+              "pm.expect(pm.response.text()).to.include(\"flat_fee\");",
+              "pm.expect(pm.response.text()).to.include(\"parent\");",
+              "pm.expect(pm.response.text()).to.include(\"rooms_application\");",
+              "pm.expect(pm.response.text()).to.include(\"applied_property\");",
+              "pm.expect(pm.response.text()).to.include(\"user\");",
+              "    ",
+              "});",
+              "",
+              "pm.test(\"Test : UCA is true and archived\", function () {",
+              "pm.expect(jsonData.is_uca).to.eql(true);",
+              "pm.expect(jsonData.is_archived).to.eql(true);",
+              "});",
+              "",
+              "pm.test(\"Test : Hidden is False\", function () {",
+              "pm.expect(jsonData.property_unit.hidden).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test :Has_guarantor is Y\", function () {",
+              "pm.expect(jsonData.has_guarantor).to.eql(\"Y\");",
+              "});",
+              "",
+              "pm.test(\"Test :Guarantor_documents_ready and Guarantor_documents_sent are false\", function () {",
+              "pm.expect(jsonData.guarantor_documents_ready).to.eql(false);",
+              "pm.expect(jsonData.guarantor_documents_sent).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test : Status=Pending\", function () {",
+              "pm.expect(jsonData.status).to.eql(\"pending\");",
+              "});",
+              "",
+              "//pm.test(\"Test Body includes paid\", function () {",
+              "  //  pm.expect(pm.response.text()).to.include(\"paid\");",
+              "//});",
+              "",
+              "//pm.test(\"Test : ApplicationID\", function () {",
+              "  //  var ApplicationID=pm.environment.get (\"ApplicationID\")",
+              "//pm.expect(jsonData.id).to.eql(ApplicationID);",
+              "//});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{url}}{{rest_app}}{{id}}/",
+          "host": [
+            "{{url}}{{rest_app}}{{id}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.GET.applicationUCA",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be/",
+              "host": [
+                "{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 10:59:38 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:59:38 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"6d25ad22-9e88-44a4-8267-0b492f8645be\",\n    \"property_unit\": {\n        \"unit_number\": \"2 Bedroom Deluxe\",\n        \"available_from\": \"2018-06-01\",\n        \"double_occupancy\": false,\n        \"description\": \"2/2: Cozy 780sq ft. unit which features a fully furnished living room, kitchen, a washer and dryer. This unit has its own central A/C unit. Each bedroom comes completely furnished with its own private bathroom. All units have a private balcony/patio which includes a storage closet..\",\n        \"hidden\": false,\n        \"rent\": 2600,\n        \"rooms\": 2,\n        \"baths\": 2,\n        \"matterport_url\": \"\",\n        \"min_roommates\": 0,\n        \"max_roommates\": 1\n    },\n    \"freezed_property_fees\": [],\n    \"is_uca\": true,\n    \"roommates\": [],\n    \"created\": \"2019-07-05T14:29:08.897074Z\",\n    \"modified\": \"2019-07-16T08:11:50.087738Z\",\n    \"first_name\": \"Tests reTest Jankins FirstName\",\n    \"us_citizen\": \"Y\",\n    \"arrested\": \"N\",\n    \"defaulted\": \"N\",\n    \"evicted\": \"N\",\n    \"guarantor_requested\": false,\n    \"has_guarantor\": \"Y\",\n    \"guarantor_documents_sent\": false,\n    \"guarantor_documents_ready\": false,\n    \"status\": \"pending\",\n    \"application_form_signed\": false,\n    \"with_application_form\": false,\n    \"without_leasing_form\": false,\n    \"rent\": \"2600.00\",\n    \"deposit\": \"2600.00\",\n    \"accepted\": false,\n    \"documents_sent\": false,\n    \"documents_ready\": false,\n    \"leasing_form_ready\": false,\n    \"leasing_form_filled\": false,\n    \"leasing_form_signed\": false,\n    \"deposit_configured\": false,\n    \"fee_paid\": false,\n    \"paid\": false,\n    \"discount_is_percentage\": false,\n    \"step_lease_landlord\": false,\n    \"enough\": false,\n    \"roommates_modal_closed\": false,\n    \"bed_rent\": \"2600.00\",\n    \"show_rent_by_unit\": false,\n    \"is_archived\": true,\n    \"call_scheduled\": false,\n    \"cashed_referral\": false,\n    \"cashed_discount\": false,\n    \"strikethrough_amount\": \"0.00\",\n    \"flat_fee\": \"34.00\",\n    \"rooms_application\": \"4b39a73e-2348-444b-9456-d06cbdb3f532\",\n    \"applied_property\": \"51679330-bd2d-4f14-8198-3ca78ec5a608\",\n    \"user\": \"0093c546-cd73-4dc1-a6dc-199d1d226620\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.PATCH.applicationUCA",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "0a85246b-2063-40f6-9f11-bd4524939f99",
+            "exec": [
+              "pm.test(\"response is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "  pm.test(\"Test Body includes updates in fields are patched  \", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"first_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"last_name\");",
+              "});",
+              "",
+              "pm.test(\"Test : first_name, last_name are updated\", function () {",
+              "pm.expect(jsonData.first_name).to.eql(\"first_name_0801\");",
+              "pm.expect(jsonData.last_name).to.eql(\"last_name_0801\");",
+              "});",
+              "",
+              "pm.test(\"Test : us_citizen is updated\", function () {",
+              "pm.expect(jsonData.us_citizen).to.eql(\"Y\");",
+              "});",
+              "",
+              "pm.test(\"Test : arrested is updated\", function () {",
+              "pm.expect(jsonData.arrested).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test :defaulted is updated\", function () {",
+              "pm.expect(jsonData.defaulted).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test : evicted is updated\", function () {",
+              "pm.expect(jsonData.evicted).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test : has_guarantor is updated\", function () {",
+              "pm.expect(jsonData.has_guarantor).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test :Guarantor_documents_ready and Guarantor_documents_sent are false\", function () {",
+              "pm.expect(jsonData.guarantor_documents_ready).to.eql(false);",
+              "pm.expect(jsonData.guarantor_documents_sent).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test : Status=Pending\", function () {",
+              "pm.expect(jsonData.status).to.eql(\"pending\");",
+              "});",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "console.log(jsonData);",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrftoken}}",
+            "type": "text"
+          },
+          {
+            "key": "Referer",
+            "value": "{{url}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{    \n    \"first_name\": \"first_name_0801\",\n    \"last_name\": \"last_name_0801\",\n    \"us_citizen\": \"Y\",\n    \"arrested\": \"N\",\n    \"defaulted\": \"N\",\n    \"evicted\": \"N\",\n    \"has_guarantor\": \"N\",\n     \"modified\": \"2019-06-27T15:08:10.614033Z\",\n     \"rent\": \"1.00\"\n       }"
+        },
+        "url": {
+          "raw": "{{url}}{{rest_app}}{{id}}/",
+          "host": [
+            "{{url}}{{rest_app}}{{id}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.PATCH.applicationUCA",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-CSRFToken",
+                "value": "{{csrftoken}}",
+                "type": "text"
+              },
+              {
+                "key": "Referer",
+                "value": "{{url}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{    \n    \"first_name\": \"first_name_updated\",\n    \"last_name\": \"last_name_updated\",\n    \"us_citizen\": \"N\",\n    \"arrested\": \"N\",\n    \"defaulted\": \"N\",\n    \"evicted\": \"N\",\n    \"has_guarantor\": \"N\",\n     \"modified\": \"2019-06-27T15:08:10.614033Z\",\n     \"rent\": \"1.00\"\n       }"
+            },
+            "url": {
+              "raw": "{{url}}{{rest_app}}cf4793b4-d278-4bce-8e5e-751e33d1629c/",
+              "host": [
+                "{{url}}{{rest_app}}cf4793b4-d278-4bce-8e5e-751e33d1629c"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 10:59:54 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:59:55 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1510"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"cf4793b4-d278-4bce-8e5e-751e33d1629c\",\n    \"property_unit\": {\n        \"unit_number\": \"1 bedroom studio\",\n        \"available_from\": \"2017-02-10\",\n        \"double_occupancy\": false,\n        \"description\": null,\n        \"hidden\": false,\n        \"rent\": 1000,\n        \"rooms\": null,\n        \"baths\": null,\n        \"matterport_url\": \"\",\n        \"min_roommates\": 0,\n        \"max_roommates\": 1\n    },\n    \"freezed_property_fees\": [],\n    \"is_uca\": false,\n    \"roommates\": [],\n    \"created\": \"2019-05-30T15:31:57.445141Z\",\n    \"modified\": \"2019-07-29T10:59:54.981325Z\",\n    \"first_name\": \"first_name_updated\",\n    \"last_name\": \"last_name_updated\",\n    \"us_citizen\": \"N\",\n    \"arrested\": \"N\",\n    \"defaulted\": \"N\",\n    \"evicted\": \"N\",\n    \"guarantor_requested\": false,\n    \"has_guarantor\": \"N\",\n    \"guarantor_documents_sent\": false,\n    \"guarantor_documents_ready\": false,\n    \"status\": \"pending\",\n    \"application_form_signed\": false,\n    \"with_application_form\": false,\n    \"without_leasing_form\": false,\n    \"rent\": \"1000.00\",\n    \"deposit\": \"0.00\",\n    \"accepted\": false,\n    \"documents_sent\": false,\n    \"documents_ready\": false,\n    \"leasing_form_ready\": false,\n    \"leasing_form_filled\": false,\n    \"leasing_form_signed\": false,\n    \"deposit_configured\": false,\n    \"fee_paid\": false,\n    \"paid\": false,\n    \"discount_is_percentage\": false,\n    \"step_lease_landlord\": false,\n    \"enough\": false,\n    \"roommates_modal_closed\": false,\n    \"bed_rent\": \"0.00\",\n    \"show_rent_by_unit\": false,\n    \"is_archived\": false,\n    \"call_scheduled\": false,\n    \"cashed_referral\": false,\n    \"cashed_discount\": false,\n    \"strikethrough_amount\": \"0.00\",\n    \"platform_fee\": 1,\n    \"parent\": \"43b8db60-ec4f-476a-b482-ef1942bca01c\",\n    \"rooms_application\": \"4b39a73e-2348-444b-9456-d06cbdb3f532\",\n    \"applied_property\": \"9d8709e2-3209-4d17-b128-135cf99ab8a2\",\n    \"user\": \"6f7f260c-2213-4a6c-bebc-e737ff771edb\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "1.Stage.GET.applicationUCA_updated",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "320f4202-de49-4bf7-b81a-35c08a36922e",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Test Body includes all fields such as ... \", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"id\");",
+              "    ",
+              "    pm.expect(pm.response.text()).to.include(\"unit_number\");",
+              "    pm.expect(pm.response.text()).to.include(\"available_from\");",
+              "    pm.expect(pm.response.text()).to.include(\"double_occupancy\");",
+              "    pm.expect(pm.response.text()).to.include(\"description\");",
+              "    pm.expect(pm.response.text()).to.include(\"hidden\");",
+              "    pm.expect(pm.response.text()).to.include(\"rent\");",
+              "    pm.expect(pm.response.text()).to.include(\"rooms\");",
+              "    pm.expect(pm.response.text()).to.include(\"baths\");",
+              "    pm.expect(pm.response.text()).to.include(\"matterport_url\");",
+              "    pm.expect(pm.response.text()).to.include(\"min_roommates\");",
+              "    pm.expect(pm.response.text()).to.include(\"max_roommates\");",
+              "  ",
+              "    pm.expect(pm.response.text()).to.include(\"freezed_property_fees\");",
+              "    pm.expect(pm.response.text()).to.include(\"is_uca\");",
+              "    pm.expect(pm.response.text()).to.include(\"roommates\");",
+              "    pm.expect(pm.response.text()).to.include(\"created\");",
+              "    pm.expect(pm.response.text()).to.include(\"modified\");",
+              "    pm.expect(pm.response.text()).to.include(\"first_name\");",
+              "    pm.expect(pm.response.text()).to.include(\"us_citizen\");",
+              "    pm.expect(pm.response.text()).to.include(\"arrested\");",
+              "    pm.expect(pm.response.text()).to.include(\"defaulted\");",
+              "    pm.expect(pm.response.text()).to.include(\"evicted\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_requested\");",
+              "    pm.expect(pm.response.text()).to.include(\"has_guarantor\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"guarantor_documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"status\");",
+              "    pm.expect(pm.response.text()).to.include(\"application_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"with_application_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"without_leasing_form\");",
+              "    pm.expect(pm.response.text()).to.include(\"rent\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit\");",
+              "    pm.expect(pm.response.text()).to.include(\"accepted\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_sent\");",
+              "    pm.expect(pm.response.text()).to.include(\"documents_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_ready\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_filled\");",
+              "    pm.expect(pm.response.text()).to.include(\"leasing_form_signed\");",
+              "    pm.expect(pm.response.text()).to.include(\"deposit_configured\");",
+              "    pm.expect(pm.response.text()).to.include(\"fee_paid\");",
+              "    pm.expect(pm.response.text()).to.include(\"paid\");",
+              "      pm.expect(pm.response.text()).to.include(\"discount_is_percentage\");",
+              "        pm.expect(pm.response.text()).to.include(\"step_lease_landlord\");",
+              "          pm.expect(pm.response.text()).to.include(\"enough\");",
+              "            pm.expect(pm.response.text()).to.include(\"roommates_modal_closed\");",
+              "              pm.expect(pm.response.text()).to.include(\"bed_rent\");  ",
+              "              pm.expect(pm.response.text()).to.include(\"show_rent_by_unit\");",
+              "                pm.expect(pm.response.text()).to.include(\"is_archived\");",
+              "pm.expect(pm.response.text()).to.include(\"call_scheduled\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_referral\");",
+              "pm.expect(pm.response.text()).to.include(\"cashed_discount\");",
+              "pm.expect(pm.response.text()).to.include(\"strikethrough_amount\");",
+              "pm.expect(pm.response.text()).to.include(\"flat_fee\");",
+              "pm.expect(pm.response.text()).to.include(\"rooms_application\");",
+              "pm.expect(pm.response.text()).to.include(\"applied_property\");",
+              "pm.expect(pm.response.text()).to.include(\"user\");",
+              "    ",
+              "});",
+              "",
+              "pm.test(\"Test : first_name, last_name are updated\", function () {",
+              "pm.expect(jsonData.first_name).to.eql(\"first_name_0801\");",
+              "pm.expect(jsonData.last_name).to.eql(\"last_name_0801\");",
+              "});",
+              "",
+              "pm.test(\"Test : us_citizen is updated\", function () {",
+              "pm.expect(jsonData.us_citizen).to.eql(\"Y\");",
+              "});",
+              "",
+              "pm.test(\"Test : arrested is updated\", function () {",
+              "pm.expect(jsonData.arrested).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test :defaulted is updated\", function () {",
+              "pm.expect(jsonData.defaulted).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test : evicted is updated\", function () {",
+              "pm.expect(jsonData.evicted).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test : has_guarantor is updated\", function () {",
+              "pm.expect(jsonData.has_guarantor).to.eql(\"N\");",
+              "});",
+              "",
+              "pm.test(\"Test :Guarantor_documents_ready and Guarantor_documents_sent are false\", function () {",
+              "pm.expect(jsonData.guarantor_documents_ready).to.eql(false);",
+              "pm.expect(jsonData.guarantor_documents_sent).to.eql(false);",
+              "});",
+              "",
+              "pm.test(\"Test : Status=Pending\", function () {",
+              "pm.expect(jsonData.status).to.eql(\"pending\");",
+              "});",
+              "",
+              "//pm.test(\"Test Body includes paid\", function () {",
+              "  //  pm.expect(pm.response.text()).to.include(\"paid\");",
+              "//});",
+              "",
+              "//pm.test(\"Test : ApplicationID\", function () {",
+              "  //  var ApplicationID=pm.environment.get (\"ApplicationID\")",
+              "//pm.expect(jsonData.id).to.eql(ApplicationID);",
+              "//});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "type": "text",
+            "value": "",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{url}}{{rest_app}}{{id}}/",
+          "host": [
+            "{{url}}{{rest_app}}{{id}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "1.Stage.GET.applicationUCA_updated",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "type": "text",
+                "value": "",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be/",
+              "host": [
+                "{{url}}{{rest_app}}6d25ad22-9e88-44a4-8267-0b492f8645be"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 29 Jul 2019 11:00:18 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 11:00:18 GMT; HttpOnly; Max-Age=1209600; Path=/"
+            },
+            {
+              "key": "Vary",
+              "value": "Cookie,Origin"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"6d25ad22-9e88-44a4-8267-0b492f8645be\",\n    \"property_unit\": {\n        \"unit_number\": \"2 Bedroom Deluxe\",\n        \"available_from\": \"2018-06-01\",\n        \"double_occupancy\": false,\n        \"description\": \"2/2: Cozy 780sq ft. unit which features a fully furnished living room, kitchen, a washer and dryer. This unit has its own central A/C unit. Each bedroom comes completely furnished with its own private bathroom. All units have a private balcony/patio which includes a storage closet..\",\n        \"hidden\": false,\n        \"rent\": 2600,\n        \"rooms\": 2,\n        \"baths\": 2,\n        \"matterport_url\": \"\",\n        \"min_roommates\": 0,\n        \"max_roommates\": 1\n    },\n    \"freezed_property_fees\": [],\n    \"is_uca\": true,\n    \"roommates\": [],\n    \"created\": \"2019-07-05T14:29:08.897074Z\",\n    \"modified\": \"2019-07-16T08:11:50.087738Z\",\n    \"first_name\": \"Tests reTest Jankins FirstName\",\n    \"us_citizen\": \"Y\",\n    \"arrested\": \"N\",\n    \"defaulted\": \"N\",\n    \"evicted\": \"N\",\n    \"guarantor_requested\": false,\n    \"has_guarantor\": \"Y\",\n    \"guarantor_documents_sent\": false,\n    \"guarantor_documents_ready\": false,\n    \"status\": \"pending\",\n    \"application_form_signed\": false,\n    \"with_application_form\": false,\n    \"without_leasing_form\": false,\n    \"rent\": \"2600.00\",\n    \"deposit\": \"2600.00\",\n    \"accepted\": false,\n    \"documents_sent\": false,\n    \"documents_ready\": false,\n    \"leasing_form_ready\": false,\n    \"leasing_form_filled\": false,\n    \"leasing_form_signed\": false,\n    \"deposit_configured\": false,\n    \"fee_paid\": false,\n    \"paid\": false,\n    \"discount_is_percentage\": false,\n    \"step_lease_landlord\": false,\n    \"enough\": false,\n    \"roommates_modal_closed\": false,\n    \"bed_rent\": \"2600.00\",\n    \"show_rent_by_unit\": false,\n    \"is_archived\": true,\n    \"call_scheduled\": false,\n    \"cashed_referral\": false,\n    \"cashed_discount\": false,\n    \"strikethrough_amount\": \"0.00\",\n    \"flat_fee\": \"34.00\",\n    \"rooms_application\": \"4b39a73e-2348-444b-9456-d06cbdb3f532\",\n    \"applied_property\": \"51679330-bd2d-4f14-8198-3ca78ec5a608\",\n    \"user\": \"0093c546-cd73-4dc1-a6dc-199d1d226620\"\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ff46c46e-aa3a-4bf0-8c13-a958cb44dd66",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "b593463a-660d-42e4-b164-ca91beefdfbb",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "84ab9862-5906-44e6-8d14-1145a6bb4432",
+      "key": "url",
+      "value": "https://aptu.co/",
+      "type": "string"
+    },
+    {
+      "id": "5e24a1a5-17aa-434f-93fb-e9b2d06a9dab",
+      "key": "rest_app",
+      "value": "application/rest/application/",
+      "type": "string"
+    },
+    {
+      "id": "796a875b-3f0c-4dd9-a0c0-27a3cad20dfe",
+      "key": "id",
+      "value": "8875f6c5-ddce-4b94-999e-f39350e203b1",
+      "type": "string"
+    },
+    {
+      "id": "e67aff18-4023-4fa5-9baf-6db7d15a8120",
+      "key": "email",
+      "value": "valery.piniazik+1564652337214@yandex.by",
+      "type": "string"
+    },
+    {
+      "id": "6a2a54bb-dfe8-43d4-9063-c6b855db4479",
+      "key": "password",
+      "value": "Janna123",
+      "type": "string"
+    },
+    {
+      "id": "d2e8cc62-09ae-4434-9791-6e70ffe8a3a2",
+      "key": "accept",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "id": "b456cec1-c74a-443e-bde2-d47a8d0a996c",
+      "key": "csrftoken",
+      "value": "vEkWel99uPG2v0H7uqgxnHbIsZ1gD2pB",
+      "type": "string"
+    },
+    {
+      "id": "821d3b90-3f0c-403c-8752-a3f3de353ec2",
+      "key": "referer",
+      "value": "https://aptu.co/",
+      "type": "string"
+    }
+  ]
+}
