@@ -1,7 +1,7 @@
 const newman = require('newman');
 const editJsonFile = require('edit-json-file');
 
-const pathToSignUpCollection = './Sign_Up.postman_collection.json';
+const pathToSignUpCollection = './Smoke.postman_collection.json';
 
 let Sign_Up_collection = editJsonFile(pathToSignUpCollection);
 
