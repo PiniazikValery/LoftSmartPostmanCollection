@@ -426,8 +426,7 @@
 							"    pm.expect(pm.response.text()).to.include(\"landlord\");",
 							"    pm.expect(pm.response.text()).to.include(\"landlord_profile\");",
 							"    pm.expect(pm.response.text()).to.include(\"signup\");",
-							"  pm.expect(pm.response.text()).to.not.include(\"csrftoken\");",
-							"});",
+							"  });",
 							"",
 							"pm.test(\"Test Email content is passed\", function () {",
 							" pm.expect(jsonData.email).to.eql(pm.variables.get(\"email\"));",
@@ -4325,49 +4324,49 @@
 	],
 	"variable": [
 		{
-			"id": "f4a2f41c-6bfc-4f4f-82f0-939935678a00",
+			"id": "b7229e15-2ab3-4375-9e4d-1e9fd795e2b3",
 			"key": "url",
 			"value": "https://aptu.co/",
 			"type": "string"
 		},
 		{
-			"id": "9055f71a-f88a-4c6f-b0c6-f58c02844304",
+			"id": "f8a40e10-3ff6-47bf-a3ec-7baae1e9d532",
 			"key": "rest_app",
 			"value": "application/rest/application/",
 			"type": "string"
 		},
 		{
-			"id": "23a5e56c-298c-4654-a223-116e91fdc417",
+			"id": "6b753765-dc99-4d6b-a31e-8fd9cea88cd4",
 			"key": "email",
-			"value": "polyakova.janna+080226@gmail.com",
+			"value": "polyakova.janna+080227@gmail.com",
 			"type": "string"
 		},
 		{
-			"id": "d8c9f2d6-6d90-4041-812e-0b4a08812130",
+			"id": "3f64c69c-6c91-4dd6-9e21-be810f252fd9",
 			"key": "password",
 			"value": "Janna123",
 			"type": "string"
 		},
 		{
-			"id": "b78fe42e-fa46-4fdd-88dc-2ef8e8aff64c",
+			"id": "0ee2b115-c7cc-4eff-81f4-7611ce00475f",
 			"key": "accept",
 			"value": "true",
 			"type": "string"
 		},
 		{
-			"id": "83b92545-3560-4b1e-a965-37fcdb5ea12f",
+			"id": "2d26f016-c7f8-4164-93ba-06bdc4f89752",
 			"key": "csrftoken",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ca00b349-4dc2-43db-a767-96f0a7174504",
+			"id": "47d788d4-d8dc-4648-a5df-fcd6d323d781",
 			"key": "id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d2c81fa7-bfbe-4e68-8337-f0337b377776",
+			"id": "ea87717e-14ca-4243-9a9a-896db6b52761",
 			"key": "referer",
 			"value": "https://aptu.co/",
 			"type": "string"
