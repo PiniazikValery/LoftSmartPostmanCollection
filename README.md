@@ -29,9 +29,14 @@ After tests runs newman generates html report in reports folder in the root deri
     2. HTML Publisher
 4. Set up utf-8 encoding for Jenkins. For example on Windows 10 do next steps:
     1. open (path to your jenkins)/jenkins.xml
-    2. Set '-Dfile.encoding=UTF8' in argiments
+    2. Set '-Dfile.encoding=UTF8' string in arguments
     ![alt text](https://miro.medium.com/max/700/1*hf4zWYy7XRansBHCJU3yEA.png)
-5. Create new Jenkins job
+5. Disable Content Security Policy in Jenkins:
+    1. open (path to your jenkins)/jenkins.xml
+    2. Set '-Dhudson.model.DirectoryBrowserSupport.CSP=' string in arguments
+    ![alt text](https://sun9-8.userapi.com/c851220/v851220118/188860/rKx1tZz9A4E.jpg)
+6. Restart Jenkins
+7. Create new Jenkins job
     1. Choose new item
     2. Choose pipline and, set name and click ok
     3. In pipeline script section enter code below:
@@ -76,5 +81,3 @@ After tests runs newman generates html report in reports folder in the root deri
       reportFiles: 'report.html',
       reportName: "Postman report"
     ])}
-```
-    
