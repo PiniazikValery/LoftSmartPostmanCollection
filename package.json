@@ -6,7 +6,6 @@
         "api_tests": "node postman_test_runner.js"
     },
     "dependencies": {
-        "edit-json-file": "^1.2.1",
         "newman": "^3.9.3",
         "newman-reporter-htmlextra": "^1.8.5"
     },
