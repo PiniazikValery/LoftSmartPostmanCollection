@@ -1,10 +1,6 @@
 {
 	"info": {
-<<<<<<< HEAD
-		"_postman_id": "66921ea4-92b4-4db0-b6a6-fdf68f0bd74e",
-=======
 		"_postman_id": "32e2470a-d185-40d7-9fcb-8b74985c699e",
->>>>>>> collection_update/jsonValidationFix_20190812
 		"name": "SMOKE_TEST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -501,11 +497,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-<<<<<<< HEAD
-						"id": "63ac2d08-9860-4318-860a-b628aee94e3f",
-=======
 						"id": "5467e784-5340-4407-9109-2de2d5f22733",
->>>>>>> collection_update/jsonValidationFix_20190812
 						"exec": [
 							"pm.globals.set(\"email\", `valery.piniazik+${new Date().getTime()}@yandex.by`);"
 						],
@@ -621,7 +613,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 31 Jul 2019 12:58:44 GMT"
+							"value": "Mon, 29 Jul 2019 10:57:23 GMT"
 						},
 						{
 							"key": "Server",
@@ -629,7 +621,7 @@
 						},
 						{
 							"key": "Set-Cookie",
-							"value": "token=aa7c0a468fb490f2dcf8012a99211c42e2e2cce4; Path=/"
+							"value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
 						},
 						{
 							"key": "Set-Cookie",
@@ -637,11 +629,11 @@
 						},
 						{
 							"key": "Set-Cookie",
-							"value": "csrftoken=fSgiXTpNdlMXvKIo7PPdBHkzLJWA2Xcq; expires=Wed, 29-Jul-2020 12:58:44 GMT; Max-Age=31449600; Path=/"
+							"value": "csrftoken=Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB; expires=Mon, 27-Jul-2020 10:57:24 GMT; Max-Age=31449600; Path=/"
 						},
 						{
 							"key": "Set-Cookie",
-							"value": "sessionid=7as1k5chdtk2xh4s8o3os6c3a4hbj14e; expires=Wed, 14-Aug-2019 12:58:44 GMT; HttpOnly; Max-Age=1209600; Path=/"
+							"value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:57:24 GMT; HttpOnly; Max-Age=1209600; Path=/"
 						},
 						{
 							"key": "Vary",
@@ -652,8 +644,8 @@
 							"value": "SAMEORIGIN"
 						},
 						{
-							"key": "Content-Length",
-							"value": "845"
+							"key": "transfer-encoding",
+							"value": "chunked"
 						},
 						{
 							"key": "Connection",
@@ -661,7 +653,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"8d1d53c3-54a7-41d4-9ab8-d0db6fe18668\",\n    \"email\": \"polyakova.janna+07312@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"86ec6bea-a232-492e-b2c5-ccffd49e9500\",\n        \"created\": \"2019-07-31T12:58:44.749799Z\",\n        \"modified\": \"2019-07-31T12:58:44.749824Z\",\n        \"code\": \"OA2KRM\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"8d1d53c3-54a7-41d4-9ab8-d0db6fe18668\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"aa7c0a468fb490f2dcf8012a99211c42e2e2cce4\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"fSgiXTpNdlMXvKIo7PPdBHkzLJWA2Xcq\"\n}"
+					"body": "{\n    \"id\": \"defd99ec-312e-44a7-8b73-b09ca4249308\",\n    \"email\": \"polyakova.janna+5@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"17eb6351-9cac-4534-8ea9-a3b761ec2a18\",\n        \"created\": \"2019-07-29T10:57:24.073349Z\",\n        \"modified\": \"2019-07-29T10:57:24.073373Z\",\n        \"code\": \"BBG6YT\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"defd99ec-312e-44a7-8b73-b09ca4249308\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB\"\n}"
 				},
 				{
 					"name": "SignUp_positive",
@@ -752,11 +744,7 @@
 						},
 						{
 							"key": "Date",
-<<<<<<< HEAD
-							"value": "Mon, 29 Jul 2019 10:57:23 GMT"
-=======
 							"value": "Wed, 24 Jul 2019 11:34:39 GMT"
->>>>>>> collection_update/jsonValidationFix_20190812
 						},
 						{
 							"key": "Server",
@@ -764,11 +752,7 @@
 						},
 						{
 							"key": "Set-Cookie",
-<<<<<<< HEAD
-							"value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
-=======
 							"value": "token=9fc5887461d81b76ffadddba458c1ece2f268e5a; Path=/"
->>>>>>> collection_update/jsonValidationFix_20190812
 						},
 						{
 							"key": "Set-Cookie",
@@ -776,19 +760,11 @@
 						},
 						{
 							"key": "Set-Cookie",
-<<<<<<< HEAD
-							"value": "csrftoken=Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB; expires=Mon, 27-Jul-2020 10:57:24 GMT; Max-Age=31449600; Path=/"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:57:24 GMT; HttpOnly; Max-Age=1209600; Path=/"
-=======
 							"value": "csrftoken=kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4; expires=Wed, 22-Jul-2020 11:34:40 GMT; Max-Age=31449600; Path=/"
 						},
 						{
 							"key": "Set-Cookie",
 							"value": "sessionid=no4gd2g106qby4dcyi6uf038s3c41s1q; expires=Wed, 07-Aug-2019 11:34:40 GMT; HttpOnly; Max-Age=1209600; Path=/"
->>>>>>> collection_update/jsonValidationFix_20190812
 						},
 						{
 							"key": "Vary",
@@ -808,11 +784,7 @@
 						}
 					],
 					"cookie": [],
-<<<<<<< HEAD
-					"body": "{\n    \"id\": \"defd99ec-312e-44a7-8b73-b09ca4249308\",\n    \"email\": \"polyakova.janna+5@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"17eb6351-9cac-4534-8ea9-a3b761ec2a18\",\n        \"created\": \"2019-07-29T10:57:24.073349Z\",\n        \"modified\": \"2019-07-29T10:57:24.073373Z\",\n        \"code\": \"BBG6YT\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"defd99ec-312e-44a7-8b73-b09ca4249308\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"Gq6CerYazTBnt79POMBQzgJ7jt9ZfkTB\"\n}"
-=======
 					"body": "{\n    \"id\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\",\n    \"email\": \"polyakova.janna+072444@gmail.com\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"avatar\": {},\n    \"can_lease\": false,\n    \"can_review\": true,\n    \"extra_data\": {},\n    \"coupon_code\": {\n        \"id\": \"eea87e62-39b3-4528-8e57-4126c03fe6ab\",\n        \"created\": \"2019-07-24T11:34:40.147609Z\",\n        \"modified\": \"2019-07-24T11:34:40.147631Z\",\n        \"code\": \"U239MN\",\n        \"get_amount\": \"8634.34\",\n        \"give_amount\": \"100.00\",\n        \"is_percentage\": false,\n        \"use_once\": false,\n        \"used\": false,\n        \"active\": true,\n        \"user\": \"99f614f3-d2b5-4a7b-bb01-ed8b96908ea7\"\n    },\n    \"phone\": null,\n    \"verified\": false,\n    \"home\": \"/\",\n    \"login_redirect_url\": \"/dashboard/tenant/#/application/\",\n    \"referral\": null,\n    \"is_authenticated\": true,\n    \"token\": \"9fc5887461d81b76ffadddba458c1ece2f268e5a\",\n    \"university\": null,\n    \"is_landlord\": false,\n    \"landlord_groups\": [],\n    \"landlord\": null,\n    \"landlord_profile\": null,\n    \"signup\": true,\n    \"csrftoken\": \"kq8bDa8fWkQnITD8g8wsWdYoh6s0cJP4\"\n}"
->>>>>>> collection_update/jsonValidationFix_20190812
 				},
 				{
 					"name": "SignUp",
@@ -847,7 +819,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}user/rest/?",
+							"raw": "{{url}}user/rest/",
 							"host": [
 								"{{url}}user"
 							],
@@ -1031,98 +1003,6 @@
 			},
 			"response": [
 				{
-					"name": "1.Stage.LOGIN.https://aptu.co/api/v2/auth/login/",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{email}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}api/v2/auth/login/",
-							"host": [
-								"{{url}}api"
-							],
-							"path": [
-								"v2",
-								"auth",
-								"login",
-								""
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Allow",
-							"value": "POST, OPTIONS"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 24 Jul 2019 07:23:33 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "token=09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c; Path=/"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "csrftoken=n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm; expires=Wed, 22-Jul-2020 07:23:33 GMT; Max-Age=31449600; Path=/"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "sessionid=p9k6anips2nuuhngap5o94a91to2d8jk; expires=Wed, 07-Aug-2019 07:23:33 GMT; HttpOnly; Max-Age=1209600; Path=/"
-						},
-						{
-							"key": "Vary",
-							"value": "Cookie,Origin"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "SAMEORIGIN"
-						},
-						{
-							"key": "transfer-encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"key\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"token\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"csrftoken\": \"n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm\"\n}"
-				},
-				{
 					"name": "1.Stage.LOGIN",
 					"originalRequest": {
 						"method": "POST",
@@ -1213,6 +1093,98 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"key\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"csrftoken\": \"rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg\"\n}"
+				},
+				{
+					"name": "1.Stage.LOGIN.https://aptu.co/api/v2/auth/login/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/v2/auth/login/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v2",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Jul 2019 07:23:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "token=09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c; Path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "csrftoken=n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm; expires=Wed, 22-Jul-2020 07:23:33 GMT; Max-Age=31449600; Path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=p9k6anips2nuuhngap5o94a91to2d8jk; expires=Wed, 07-Aug-2019 07:23:33 GMT; HttpOnly; Max-Age=1209600; Path=/"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie,Origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"key\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"token\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"csrftoken\": \"n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm\"\n}"
 				}
 			]
 		},
