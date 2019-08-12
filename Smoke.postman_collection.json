@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "32e2470a-d185-40d7-9fcb-8b74985c699e",
+		"_postman_id": "498cb6a8-ba75-47e3-a0d1-bdc95efd3472",
 		"name": "SMOKE_TEST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -13,6 +13,32 @@
 					"script": {
 						"id": "d890ecbd-1c27-4f03-96b8-6636a68e3619",
 						"exec": [
+							"pm.sendRequest({",
+							"    url:`${pm.variables.get(\"url\")}user/`,",
+							"    method: \"patch\",",
+							"    body: {",
+							"     mode: 'raw',",
+							"     raw: JSON.stringify(",
+							"            {",
+							"                \"first_name\":\"Valery\",",
+							"                \"last_name\":\"Piniazik\",",
+							"                \"phone\":\"+375447970061\",",
+							"                \"university\":\"01de8de9-edc5-44d1-9b5f-4a532336f0d1\",",
+							"                \"referral\":\"no\",",
+							"                \"allow_sms\":false,",
+							"                \"profile\":{\"university\":\"01de8de9-edc5-44d1-9b5f-4a532336f0d1\"}",
+							"            }",
+							"        )",
+							"    },",
+							"    header: {",
+							"      'Content-Type': 'application/json',",
+							"      'X-CSRFToken': pm.cookies.get('csrftoken'),",
+							"      'Referer': pm.variables.get(\"url\")",
+							"  }",
+							"}, function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -1003,98 +1029,6 @@
 			},
 			"response": [
 				{
-					"name": "1.Stage.LOGIN",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{email}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}api/v2/auth/login/",
-							"host": [
-								"{{url}}api"
-							],
-							"path": [
-								"v2",
-								"auth",
-								"login",
-								""
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Allow",
-							"value": "POST, OPTIONS"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Date",
-							"value": "Mon, 29 Jul 2019 10:58:26 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "csrftoken=rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg; expires=Mon, 27-Jul-2020 10:58:26 GMT; Max-Age=31449600; Path=/"
-						},
-						{
-							"key": "Set-Cookie",
-							"value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:58:26 GMT; HttpOnly; Max-Age=1209600; Path=/"
-						},
-						{
-							"key": "Vary",
-							"value": "Cookie,Origin"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "SAMEORIGIN"
-						},
-						{
-							"key": "Content-Length",
-							"value": "148"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"key\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"csrftoken\": \"rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg\"\n}"
-				},
-				{
 					"name": "1.Stage.LOGIN.https://aptu.co/api/v2/auth/login/",
 					"originalRequest": {
 						"method": "POST",
@@ -1185,6 +1119,98 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"key\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"token\": \"09ce4b1209c2c3ffeb5fcb471ea242a7f729c10c\",\n    \"csrftoken\": \"n4t6aiI9PcxW3iQgDj9HpzkjdqCbnpNm\"\n}"
+				},
+				{
+					"name": "1.Stage.LOGIN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}api/v2/auth/login/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v2",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jul 2019 10:58:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.33 (Amazon) mod_wsgi/3.5 Python/3.6.5"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "token=720280d097c1cfe484187c3142939ead742c3656; Path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "csrftoken=rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg; expires=Mon, 27-Jul-2020 10:58:26 GMT; Max-Age=31449600; Path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=1sizq9m43kq0ivcqgljnh07r28u9b1ch; expires=Mon, 12-Aug-2019 10:58:26 GMT; HttpOnly; Max-Age=1209600; Path=/"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie,Origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"key\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"token\": \"720280d097c1cfe484187c3142939ead742c3656\",\n    \"csrftoken\": \"rpyHGSzpBdFH80ob9IDpCgVd75jJNfgg\"\n}"
 				}
 			]
 		},
