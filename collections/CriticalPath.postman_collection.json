@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "0bf869b2-f992-438f-b634-314ead0a9aec",
+		"name": "CriticalPath",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ChangePassword",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "13932645-6e1b-4434-8b16-88790e267c7c",
+						"exec": [
+							"pm.sendRequest({",
+							"    url:`${pm.variables.get(\"url\")}api/v2/auth/login/`,",
+							"    method: \"post\",",
+							"    body: {",
+							"     mode: 'raw',",
+							"     raw: JSON.stringify(",
+							"            {",
+							"                \"username\": pm.variables.get(\"email\"),",
+							"                \"password\": pm.variables.get(\"password\")",
+							"            }",
+							"        )",
+							"    },",
+							"    header: {",
+							"      'Content-Type': 'application/json'",
+							"  }",
+							"}, function (err, response, {cookies}) {",
+							"    const xsrfCookie = cookies.one('csrftoken').value;",
+							"    pm.globals.set(\"csrftoken\", xsrfCookie);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "970f8659-d65c-400a-bb43-06233437205d",
+						"exec": [
+							"pm.sendRequest({",
+							"    url:`${pm.variables.get(\"url\")}user/password/`,",
+							"    method: \"put\",",
+							"    body: {",
+							"     mode: 'raw',",
+							"     raw: JSON.stringify(",
+							"            {",
+							"                \"old_password\": pm.variables.get(\"new_password\"),",
+							"                \"new_password1\": pm.variables.get(\"password\"),",
+							"                \"new_password2\": pm.variables.get(\"password\")",
+							"            }",
+							"        )",
+							"    },",
+							"    header: {",
+							"      'Content-Type': 'application/json',",
+							"      'Referer': pm.variables.get(\"url\"),",
+							"      'X-CSRFToken': pm.cookies.get('csrftoken')",
+							"  }",
+							"}, function (err, response, {cookies}) {",
+							"    if(!err){",
+							"        console.log('password rechanged')",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "{{url}}",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "old_password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "new_password1",
+							"value": "{{new_password}}",
+							"type": "text"
+						},
+						{
+							"key": "new_password2",
+							"value": "{{new_password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/password/",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"password",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "78f2c58f-1528-49e4-8531-daf8e28153f3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "61252346-e620-409d-b392-56645e4e50b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7ffcc298-6021-43aa-9f68-5517d1e52794",
+			"key": "email",
+			"value": "constantuser@yandex.by",
+			"type": "string"
+		},
+		{
+			"id": "dfb1910e-b96d-4a57-841a-99be11214bbd",
+			"key": "password",
+			"value": "Dfkthfgbyzpbr1",
+			"type": "string"
+		},
+		{
+			"id": "869d9b1c-c4d4-4b77-b873-f4460831f236",
+			"key": "url",
+			"value": "https://aptu.co/",
+			"type": "string"
+		},
+		{
+			"id": "81776f0a-2ef4-47f9-a787-ac4092991df2",
+			"key": "new_password",
+			"value": "Dfkthfgbyzpbr2",
+			"type": "string"
+		}
+	]
+}
