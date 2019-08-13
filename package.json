@@ -7,7 +7,8 @@
     },
     "dependencies": {
         "newman": "^3.9.3",
-        "newman-reporter-htmlextra": "^1.8.5"
+        "newman-reporter-htmlextra": "^1.8.5",
+        "yargs": "^13.3.0"
     },
     "author": "Valery Piniazik",
     "license": "ISC"
